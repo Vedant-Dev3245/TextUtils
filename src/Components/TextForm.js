@@ -12,7 +12,7 @@
     });
     setTimeout(() => {
       props.setAlert(null);
-    }, 1400);
+    }, 1600);
     }
     const handleOnChange=(event)=>{
       setText(event.target.value)
@@ -26,10 +26,10 @@
     });
     setTimeout(() => {
       props.setAlert(null);
-    }, 1400);
+    }, 1600);
     }
     const[text,setText]=useState("");
-    const arr=text.split(" ")
+    const arr=text.split(/\s+/)
     let len=arr.length;
     for(let i=0;i<arr.length && len>=0;i++){
       if(arr[i]===""){
@@ -50,7 +50,7 @@
     });
     setTimeout(() => {
       props.setAlert(null);
-    }, 1400);
+    }, 1600);
     
 
    }
@@ -63,7 +63,7 @@
     })
      setTimeout(() => {
       props.setAlert(null);
-    }, 1400);
+    }, 1600);
     
 
      
@@ -90,17 +90,17 @@ const clear=()=>{
     });
     setTimeout(() => {
       props.setAlert(null);
-    }, 1400);
+    }, 1600);
 }
     return (
       <div className="container" style={myStyle}>  
       <h1 style={myStyle}>Enter the text to analyze </h1>
       <div className="mb-3" style={myStyle}>
       <textarea className="form-control" onChange={handleOnChange}  value={text} id="exampleFormControlTextarea1" rows="8" style={myStyle}></textarea>
-      <button className="btn btn-primary myS3 my-3"  onClick={handleUpClick}>  Convert to Uppercase</button>
-      <button className="btn btn-primary myS3 mx-2 my-3"  onClick={handleDownClick}>Convert to Lowercase</button>
-      <button className="btn btn-primary myS3 my-3 " onClick={clear} >Clear Text</button>
-      <button className="btn btn-primary myS3 my-3 mx-2 " onClick={toggleDarkMode} >{btntext}</button>
+      <button disabled={text.length===0} className="btn btn-primary myS3 my-2 mx-1"  onClick={handleUpClick}>  Convert to Uppercase</button>
+      <button disabled={text.length===0} className="btn btn-primary myS3 my-2 mx-1 "  onClick={handleDownClick}>Convert to Lowercase</button>
+      <button disabled={text.length===0} className="btn btn-primary myS3 my-2 mx-1 " onClick={clear} >Clear Text</button>
+      <button  className="btn btn-primary myS3 my-2 mx-1 " onClick={toggleDarkMode} >{btntext}</button>
 
     </div>
     <div style={myStyle}>
